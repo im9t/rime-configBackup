@@ -56,6 +56,9 @@ speller:
     - xform/( \w)b/$1N/ # 小鹤双拼的B键的in匹配到微软双拼的N键
     - derive/( [nl])v/$1Y/ # 小鹤双拼的V键的v匹配到微软双拼的Y键
     - derive/( \w)t/$1V/  #t->v ue
+    - derive/ a(\w)/o$1/ # 0声母改为o
+    - derive/ an/oj/ # 0声母改为o
+    - derive/ ee/oe/ # 0声母改为o
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
     - xform/^ //
     

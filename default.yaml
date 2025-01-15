@@ -4,15 +4,15 @@
 config_version: '0.40'
 
 schema_list:
-  - schema: moqi_wan_flypymo # 墨奇万象·小鹤+墨奇形
-  - schema: moqi_wan_zrm # 墨奇万象·自然码+自然码部首辅助码
-  - schema: moqi_wan_flypy # 墨奇万象·小鹤+鹤形 鹤形+鹤拼, 小鹤官方就只有8000字左右
-  - schema: moqi_single_xh # 墨奇码·顶屏版·小鹤双拼，为了4码自动上屏 只收录了8000字
+  #- schema: moqi_wan_flypymo # 墨奇万象·小鹤+墨奇形
+  #- schema: moqi_wan_zrm # 墨奇万象·自然码+自然码部首辅助码
+  #- schema: moqi_wan_flypy # 墨奇万象·小鹤+鹤形 鹤形+鹤拼, 小鹤官方就只有8000字左右
+  #- schema: moqi_single_xh # 墨奇码·顶屏版·小鹤双拼，为了4码自动上屏 只收录了8000字
 
   #- schema: moqi_xh # 墨奇辅助码 鹤拼版 大词库版本 非自动上屏，支持4万字
   #- schema: moqi_zrm # 墨奇辅助码 自然双拼版 大词库版本 非自动上屏，支持4万字
-  # - schema: moqi_sogou # 墨奇辅助码搜狗双拼版 大词库版本 非自动上屏，支持4万字
-  # - schema: moqi_ms # 墨奇辅助码微软双拼版 大词库版本 非自动上屏，支持4万字
+  - schema: moqi_sogou # 墨奇辅助码搜狗双拼版 大词库版本 非自动上屏，支持4万字
+  #- schema: moqi_ms # 墨奇辅助码微软双拼版 大词库版本 非自动上屏，支持4万字
 
   # - schema: moqi_wan_zrm_hx # 墨奇万象·自然码+汉心码辅助码
   # - schema: moqi_wan_ms_wb # 墨奇万象·微软+五笔
@@ -26,7 +26,6 @@ schema_list:
 switcher:
   caption: 〔方案選單〕
   hotkeys:
-    - Control+grave
     - Control+Shift+grave
     - F4
   save_options:
@@ -46,7 +45,7 @@ menu:
   page_size: 9 #候选项数
   
 style:
-  horizontal: false #横排为true
+  horizontal: true #横排为true
 
 punctuator:
   full_shape:
@@ -128,16 +127,16 @@ key_binder:
     # - { when: has_menu, accept: Tab, send: Page_Down }
 
     # Option/Alt + ←/→ 切换光标至下/上一个拼音
-    - { when: composing, accept: Alt+Left, send: Shift+Left }
-    - { when: composing, accept: Alt+Right, send: Shift+Right }
+    #- { when: composing, accept: Alt+Left, send: Shift+Left }
+    #- { when: composing, accept: Alt+Right, send: Shift+Right }
 
     # 翻页 - =
-    - { when: has_menu, accept: minus, send: Page_Up }
-    - { when: has_menu, accept: equal, send: Page_Down }
+    #- { when: has_menu, accept: minus, send: Page_Up }
+    #- { when: has_menu, accept: equal, send: Page_Down }
 
     # 翻页 , .
-    # - { when: paging, accept: comma, send: Page_Up }
-    # - { when: has_menu, accept: period, send: Page_Down }
+    - { when: has_menu, accept: comma, send: Page_Up }
+    - { when: has_menu, accept: period, send: Page_Down }
 
     # 翻页 [ ]
     # - { when: paging, accept: bracketleft, send: Page_Up }
@@ -164,7 +163,7 @@ key_binder:
     # - { when: composing, accept: Control+a, send: Home }
     # - { when: composing, accept: Control+e, send: End }
     # - { when: composing, accept: Control+d, send: Delete }
-    - { when: composing, accept: Control+k, send: Shift+Delete }
+    #- { when: composing, accept: Control+k, send: Shift+Delete }
     # - { when: composing, accept: Control+h, send: BackSpace }
     # - { when: composing, accept: Control+g, send: Escape }
     # - { when: composing, accept: Control+bracketleft, send: Escape }
