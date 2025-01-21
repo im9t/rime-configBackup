@@ -59,6 +59,8 @@ speller:
     - derive/ ee/oe/ # 0声母改为o
     - derive/ er/or/ # 0声母改为o
     - derive/ en/of/ # 0声母改为o
+    - derive/ ai/ol/ # 0声母改为o
+    - derive/ ao/ok/ # 0声母改为o
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
     - xform/^ //
     
