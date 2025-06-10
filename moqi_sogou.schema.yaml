@@ -39,7 +39,7 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   delimiter: " '"
-  ## speller 未允许 aj 表示 an
+  
   algebra:
     - xform/^/ /
     - xform/( \w)w/$1Z/ # 小鹤双拼的W键的ei匹配到Z键
@@ -61,6 +61,7 @@ speller:
     - derive/ en/of/ # 0声母改为o
     - derive/ ai/ol/ # 0声母改为o
     - derive/ ao/ok/ # 0声母改为o
+    - derive/ ou/ob/ # 0声母改为o
     - xlit/QWRTYUIOPSDFGHJKLZXCVBNM/qwrtyuiopsdfghjklzxcvbnm/
     - xform/^ //
     
