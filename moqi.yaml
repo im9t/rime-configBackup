@@ -131,7 +131,7 @@ octagram:
 phrase:
   custom_phrase:
     dictionary: ""
-    user_dict: custom_phrase/custom_phrase
+    user_dict: custom_phrase/lxz
     db_class: stabledb
     enable_completion: false
     enable_sentence: false
