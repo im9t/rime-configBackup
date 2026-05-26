@@ -1,2 +1,4 @@
 的	d	3
 了	l	3
+Nextgen123	np
+Nextgen123!	npe

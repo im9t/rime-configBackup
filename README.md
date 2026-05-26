@@ -1,11 +1,34 @@
-# 说明
+# Simplified Rime
 
-克隆自[墨奇音形](https://github.com/gaboolic/rime-shuangpin-fuzhuma)
+This folder is a simplified bundle generated from currently enabled schema(s).
 
-那天晚上配置完以后 好用到不想睡觉的输入方案
+## Included scope
 
-这是我修改完的配置，传到这里就当备份了。
+- Active schema in `default.yaml`:
+  - `moqi_sogou`
+- Required schema/dictionary files for:
+  - `moqi_sogou`
+  - `reverse_moqima`
+  - `zrlf`
+  - `emoji`
+  - `easy_en`
+  - `jp_sela`
+  - `moqi_big`
+- Shared runtime resources used by this setup:
+  - `lua/`
+  - `opencc/`
+  - `cn_dicts_moqi/`
+  - `cn_dicts_common/`
+  - `custom_phrase/`
 
-最开始用的自然码，方言里 昂=嗯，但是这个字居然还要按三个键，
-后来慢慢觉得那些没有声母的字打起来很不顺手，就转到了有零声母方案的微软双拼和搜狗双拼。
-目前还不习惯在双拼里使用简拼，所以做了一点修改，还没有完全关掉，没琢磨清楚配置方式。
+## Notes
+
+- `default.custom.yaml` is provided and forces schema list to only `moqi_sogou`.
+- `stroke.schema.yaml` is copied from `build/stroke.schema.yaml` (source tree has no root `stroke.schema.yaml`).
+- User data directories (`*.userdb/`), build outputs, and unrelated schemas are intentionally excluded.
+
+## How to use
+
+1. Keep this folder as an isolated profile copy.
+2. If you need more features later, copy related `*.schema.yaml`, `*.dict.yaml`, or resource directories from parent folder.
+3. Re-deploy Rime after replacing config files.
