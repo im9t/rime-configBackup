@@ -56,8 +56,8 @@ This folder is a simplified bundle generated from currently enabled schema(s).
 | 农历 | `anl` 或 `NYYYYMMDD` | `anl` 转换当前日期；例如 `N20240115` 将指定公历日期转换为农历。 |
 | 数字转中文金额 | `R数字` | 例如 `R1234.56`，显示中文数字/金额候选。 |
 | Unicode 字符 | `U十六进制码位` | 例如 `U1F600`。 |
-| 计算器 | `V表达式` | 例如 `V1+2*3`。 |
-| 身份证号候选 | `C数字` | 根据已输入数字生成/补全身份证号候选；请勿将随机补全结果当作真实身份信息。 |
+| 计算器 | `Shift+C` 后输入表达式 | 例如 `C1+2*3`。 |
+| 身份证号候选 | `Shift+V` 后输入数字 | 根据已输入数字生成/补全身份证号候选；请勿将随机补全结果当作真实身份信息。 |
 
 ### 快捷键
 
@@ -90,7 +90,7 @@ This folder is a simplified bundle generated from currently enabled schema(s).
 - 普通文字 / 火星文
 - 中文 / 西文标点
 
-当前配置会保存 `ascii_mode` 等选项状态，因此重新切回方案时可能恢复上次的中英文状态。
+方案重新激活时默认重置为中文模式；在当前会话中仍可通过方案选项菜单切换为西文。
 
 ## Input performance
 
