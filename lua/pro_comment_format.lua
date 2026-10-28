@@ -28,7 +28,7 @@ function CR.init(env)
     if env.settings ~= nil then
         env.settings.corrector_type = env.settings.corrector_type:gsub('^*', '')
     end
-    CR.style = config:get_string("pro_comment_format/corrector_type") or '{comment}'
+    env.corrector_style = config:get_string("pro_comment_format/corrector_type") or '{comment}'
     CR.corrections = {
         -- 错音
         ["hun dun"] = { text = "馄饨", comment = "hún tun" },
@@ -151,8 +151,8 @@ function CR.run(cand, env, initial_comment)
         -- 从 CR.corrections 表中查找对应的修正
         local c = CR.corrections[pinyin]
         if c and cand.text == c.text then
-            -- 使用 CR.style 模板构建最终的注释内容
-            local final_comment = CR.style:gsub("{comment}", c.comment)
+            -- 使用当前方案的模板构建最终的注释内容
+            local final_comment = env.corrector_style:gsub("{comment}", c.comment)
             return final_comment  -- 返回修正后的注释
         end
     end
@@ -238,15 +238,11 @@ function C.init(env)
         log.info("env.settings = nil")
         env.settings = nil
     end
-    
+    if env.settings and env.settings.corrector_enabled then
+        CR.init(env)
+    end
 end 
 function C.func(input, env)
-    -- 调用全局初始共享环境
-    C.init(env)
-    CR.init(env)
-
-    local processed_candidates = {}  -- 用于存储处理后的候选词
-    local deal_count = 1
     if (env.settings == nil) then
         for cand in input:iter() do
             yield(cand)
@@ -258,7 +254,6 @@ function C.func(input, env)
                 yield(cand)
                 goto continue
             end
-            deal_count = deal_count + 1
             -- log.info(cand.type)
             -- log.info(cand.text)
             local initial_comment = cand.comment  -- 保存候选词的初始注释
@@ -290,16 +285,12 @@ function C.func(input, env)
             yield(cand)
             ::continue::
         end
-
-        -- 输出处理后的候选词
-        -- for _, cand in ipairs(processed_candidates) do
-        --     yield(cand)
-        -- end
     end
 end
 return {
     CR = CR,
     FZ = FZ,
     C = C,
+    init = C.init,
     func = C.func
 }
